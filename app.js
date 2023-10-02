@@ -25,8 +25,10 @@ class Sprite {
 
     update() {
         this.draw()
-
+        // To accelerate objects until they hit ground
+        this.position.x += this.velocity.x
         this.position.y += this.velocity.y
+
         if (this.position.y + this.height + this.velocity.y >= HEIGHT){
             this.velocity.y = 0
         } else {
@@ -62,9 +64,46 @@ const enemy = new Sprite({
 function animate() {
     window.requestAnimationFrame(animate)
     c.fillStyle = 'black'
+    // To clear rect
     c.fillRect(0, 0, WIDTH, HEIGHT)
     player.update()
     enemy.update()
 }
 
 animate()
+
+window.addEventListener('keydown', (event) => {
+    console.log(event.key)
+    switch(event.key) {
+        case 'd':
+            player.velocity.x = 1
+            break
+        case 'a':
+            player.velocity.x = -1
+            break
+        case 'ArrowRight':
+            enemy.velocity.x = 1
+            break
+        case 'ArrowLeft':
+            enemy.velocity.x = -1
+            break
+    }
+})
+
+window.addEventListener('keyup', (event) => {
+    console.log(event.key)
+    switch(event.key) {
+        case 'd':
+            player.velocity.x = 0
+            break
+        case 'a':
+            player.velocity.x = 0
+            break
+        case 'ArrowRight':
+            enemy.velocity.x = 0
+            break
+        case 'ArrowLeft':
+            enemy.velocity.x = 0
+            break
+    }
+})
