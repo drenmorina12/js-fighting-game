@@ -1,1 +1,1 @@
-# js-fighting-game
+# A simple Fighting Game built with JavaScript
