@@ -7,8 +7,17 @@
 	<title>Fighting Game</title>
 </head>
 <body>
-	<canvas></canvas>
-
+	<div style="position: relative; display: inline-block;">
+		<div style="position: absolute; display: flex; width: 100%; justify-content: center; align-items: center;">
+			<!-- Player health -->
+			<div style="background-color: yellow; height: 30px; width: 100%;"></div>
+			<!-- Timer -->
+			<div style="background-color: red; width: 100px; height: 100px; flex-shrink: 0;"></div>
+			<!-- Enemy Health -->
+			<div style="background-color: yellow; height: 30px; width: 100%;"></div>
+		</div>
+		<canvas></canvas>
+	</div>
 	<script src="app.js"></script>
 </body>
 </html>
