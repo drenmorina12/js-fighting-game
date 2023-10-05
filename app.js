@@ -36,10 +36,10 @@ class Sprite {
         c.fillRect(this.position.x, this.position.y, this.width, this.height    )
 
         // Attack box
-        // if (this.isAttacking){
+        if (this.isAttacking){
             c.fillStyle = 'green'
             c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height)
-        // }
+        }
     }
 
     update() {  
@@ -152,21 +152,30 @@ function animate() {
         enemy.velocity.x = 3
     }
 
-    // Detect for collision 
+    // Detect for collision - Player
     if ( rectangularCollision({
         rectangle1: player,
         rectangle2: enemy
     })&&
         player.isAttacking){
         player.isAttacking = false
-        console.log("DAMAGE")
+        console.log("PLAYER")
+    }
+
+    // Detect for collision - Enemy
+    if ( rectangularCollision({
+        rectangle1: enemy,
+        rectangle2: player
+    })&&
+        enemy.isAttacking){
+        enemy.isAttacking = false
+        console.log("ENEMY")
     }
 }
 
 animate()
 
 window.addEventListener('keydown', (event) => {
-    console.log(event.key)
     switch(event.key) {
         // Player
         case 'd':
@@ -195,12 +204,14 @@ window.addEventListener('keydown', (event) => {
             break
         case 'ArrowUp':
             enemy.velocity.y = -10    
-            break       
+            break   
+        case 'ArrowDown':
+            enemy.attack()
+            break
     }
 })
 
 window.addEventListener('keyup', (event) => {
-    console.log(event.key)
     switch(event.key) {
         // Player
         case 'd':
