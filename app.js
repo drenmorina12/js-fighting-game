@@ -28,7 +28,7 @@ class Sprite {
     }
     draw() {
         c.fillStyle = this.color
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+        c.fillRect(this.position.x, this.position.y, this.width, this.height    )
 
         // Attack box
         c.fillStyle = 'green'
@@ -120,8 +120,10 @@ function animate() {
     }
 
     // Detect for collision 
-    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x
-        && player.attackBox.position.x <= enemy.position.x + enemy.width){
+    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x && 
+        player.attackBox.position.x <= enemy.position.x + enemy.width &&
+        player.attackBox.position.y + player.attackBox.height >= enemy.attackBox.position.y &&
+        player.attackBox.position.y <= enemy.attackBox.position.y + enemy.attackBox.height){
         console.log("DAMAGE")
     }
 }
