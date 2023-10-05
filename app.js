@@ -16,6 +16,7 @@ class Sprite {
     constructor({ position, velocity, color='red'}) {
         this.position = position
         this.velocity = velocity
+        this.width = SPRITE_WIDTH
         this.height = SPRITE_HEIGHT
         this.lastKey
         this.attackBox = {
@@ -27,14 +28,14 @@ class Sprite {
     }
     draw() {
         c.fillStyle = this.color
-        c.fillRect(this.position.x, this.position.y, SPRITE_WIDTH, SPRITE_HEIGHT)
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
 
         // Attack box
         c.fillStyle = 'green'
         c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height)
     }
 
-    update() {
+    update() {  
         this.draw()
         // To accelerate objects until they hit ground
         this.position.x += this.velocity.x
@@ -104,18 +105,24 @@ function animate() {
     player.velocity.x = 0
 
     if (keys.a.pressed && player.lastKey === 'a'){
-        player.velocity.x = -1
+        player.velocity.x = -3
     } else if (keys.d.pressed && player.lastKey === 'd'){
-        player.velocity.x = 1
+        player.velocity.x = 3
     }
 
     // Enemy
     enemy.velocity.x = 0
 
     if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft'){
-        enemy.velocity.x = -1
+        enemy.velocity.x = -3
     } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight'){
-        enemy.velocity.x = 1
+        enemy.velocity.x = 3
+    }
+
+    // Detect for collision 
+    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x
+        && player.attackBox.position.x <= enemy.position.x + enemy.width){
+        console.log("DAMAGE")
     }
 }
 
