@@ -1,0 +1,26 @@
+.container {
+    position: relative; 
+    display: inline-block;
+}
+
+.hp-interface {
+    position: absolute; 
+    display: flex; 
+    width: 100%; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.player-hp,
+.enemy-hp {
+    background-color: yellow; 
+    height: 30px; 
+    width: 100%;
+}
+
+.timer {
+    background-color: red; 
+    width: 100px; 
+    height: 100px; 
+    flex-shrink: 0;
+}
