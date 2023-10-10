@@ -52,8 +52,6 @@
     width: 100%;
 }
 
-
-
 .timer {
     background-color: red; 
     width: 100px; 
@@ -62,4 +60,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#display-text {
+    position: absolute; 
+    color: white; 
+    /* display: flex;  */
+    align-items: center; 
+    justify-content: center;
+	top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0; 
+    display: none;
 }
