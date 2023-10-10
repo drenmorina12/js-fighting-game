@@ -125,6 +125,17 @@ function rectangularCollision({rectangle1, rectangle2}) {
     )
 }
 
+let timer = 10
+function decreaseTimer() {
+    if (timer > 0){
+        setTimeout(decreaseTimer, 1000)
+        timer --
+        document.querySelector('.timer').innerHTML = timer
+    }
+}
+
+decreaseTimer()
+
 function animate() {
     window.requestAnimationFrame(animate)
     c.fillStyle = 'black'
@@ -175,6 +186,8 @@ function animate() {
         document.querySelector('#player-bar').style.width = player.health + '%'
     }
 }
+
+
 
 animate()
 
