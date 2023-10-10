@@ -159,7 +159,7 @@ function animate() {
     })&&
         player.isAttacking){
         player.isAttacking = false
-        console.log("PLAYER")
+        document.querySelector('#enemy-bar').style.width = '20%'
     }
 
     // Detect for collision - Enemy
