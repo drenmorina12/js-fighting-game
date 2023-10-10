@@ -30,6 +30,7 @@ class Sprite {
         }
         this.color = color
         this.isAttacking
+        this.health = 100
     }
     draw() {
         c.fillStyle = this.color
@@ -159,7 +160,8 @@ function animate() {
     })&&
         player.isAttacking){
         player.isAttacking = false
-        document.querySelector('#enemy-bar').style.width = '20%'
+        enemy.health -= 20
+        document.querySelector('#enemy-bar').style.width = enemy.health + '%'
     }
 
     // Detect for collision - Enemy
@@ -169,7 +171,8 @@ function animate() {
     })&&
         enemy.isAttacking){
         enemy.isAttacking = false
-        console.log("ENEMY")
+        player.health -= 20
+        document.querySelector('#player-bar').style.width = player.health + '%'
     }
 }
 
