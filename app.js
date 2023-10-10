@@ -12,6 +12,14 @@ canvas.height = HEIGHT
 
 c.fillRect(0, 0, WIDTH, HEIGHT)
 
+const background = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './images/background.png'
+})
+
 const player = new Fighter({
     position: {  
         x: 0,
@@ -106,6 +114,7 @@ function animate() {
     c.fillStyle = 'black'
     // To clear rect
     c.fillRect(0, 0, WIDTH, HEIGHT)
+    background.update()
     player.update()
     enemy.update()
 
