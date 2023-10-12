@@ -1,76 +1,76 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .container {
-    position: relative; 
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .hp-interface {
-    position: absolute; 
-    display: flex; 
-    width: 100%; 
-    justify-content: center; 
-    align-items: center;
-    padding: 20px;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .player,
 .enemy {
-    position: relative; 
-    height: 30px; 
-    width: 100%;
+  position: relative;
+  height: 30px;
+  width: 100%;
 }
 
 .player {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .player-hp,
 .enemy-hp {
-    background-color: yellow; 
-    height: 30px; 
-    width: 100%;
+  background-color: yellow;
+  height: 30px;
+  width: 100%;
 }
 
 #player-bar,
 #enemy-bar {
-    position: absolute; 
-    background-color: blue; 
-    top: 0; 
-    right: 0; 
-    bottom: 0;
+  position: absolute;
+  background-color: blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #enemy-bar {
-    left: 0;
+  left: 0;
 }
 
 #player-bar {
-    width: 100%;
+  width: 100%;
 }
 
 .timer {
-    background-color: red; 
-    width: 100px; 
-    height: 100px; 
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #display-text {
-    position: absolute; 
-    color: white; 
-    /* display: flex;  */
-    align-items: center; 
-    justify-content: center;
-	top: 0; 
-    right: 0; 
-    bottom: 0; 
-    left: 0; 
-    display: none;
+  position: absolute;
+  color: white;
+  /* display: flex;  */
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
 }
