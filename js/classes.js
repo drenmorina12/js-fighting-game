@@ -127,20 +127,32 @@ class Fighter extends Sprite {
   switchSprite(sprite) {
     switch (sprite) {
       case "idle":
-        player.image = player.sprites.idle.image;
-        player.framesMax = player.sprites.idle.framesMax;
+        if (player.image !== player.sprites.idle.image) {
+          player.image = player.sprites.idle.image;
+          player.framesMax = player.sprites.idle.framesMax;
+          this.framesCurrent = 0;
+        }
         break;
       case "run":
-        player.image = player.sprites.run.image;
-        player.framesMax = player.sprites.run.framesMax;
+        if (player.image !== player.sprites.run.image) {
+          player.image = player.sprites.run.image;
+          player.framesMax = player.sprites.run.framesMax;
+          this.framesCurrent = 0;
+        }
         break;
       case "jump":
-        player.image = player.sprites.jump.image;
-        player.framesMax = player.sprites.jump.framesMax;
+        if (player.image !== player.sprites.jump.image) {
+          player.image = player.sprites.jump.image;
+          player.framesMax = player.sprites.jump.framesMax;
+          this.framesCurrent = 0;
+        }
         break;
       case "fall":
-        player.image = player.sprites.fall.image;
-        player.framesMax = player.sprites.fall.framesMax;
+        if (player.image !== player.sprites.fall.image) {
+          player.image = player.sprites.fall.image;
+          player.framesMax = player.sprites.fall.framesMax;
+          this.framesCurrent = 0;
+        }
         break;
     }
   }
