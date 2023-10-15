@@ -8,15 +8,18 @@ class Sprite {
     this.scale = scale;
     this.framesMax = framesMax;
     this.framesCurrent = 0;
+    this.framesElapsed = 0;
+    this.framesHold = 10;
   }
   draw() {
     c.drawImage(
       this.image,
-      // Crop frames
+      // Position to crop frames
       this.framesCurrent * (this.image.width / this.framesMax),
       0,
       this.image.width / this.framesMax,
       this.image.height,
+      // Position to draw frame
       this.position.x,
       this.position.y,
       (this.image.width / this.framesMax) * this.scale,
@@ -26,10 +29,14 @@ class Sprite {
 
   update() {
     this.draw();
-    if (this.framesCurrent < this.framesMax - 1) {
-      this.framesCurrent++;
-    } else {
-      this.framesCurrent = 0;
+    this.framesElapsed++;
+
+    if (this.framesElapsed % this.framesHold === 0) {
+      if (this.framesCurrent < this.framesMax - 1) {
+        this.framesCurrent++;
+      } else {
+        this.framesCurrent = 0;
+      }
     }
   }
 }
