@@ -50,6 +50,16 @@ const player = new Fighter({
     x: 215,
     y: 157,
   },
+  sprites: {
+    idle: {
+      imageSrc: "./images/samuraiMack/idle.png",
+      framesMax: 8,
+    },
+    run: {
+      imageSrc: "./images/samuraiMack/run.png",
+      framesMax: 8,
+    },
+  },
 });
 
 const enemy = new Fighter({
@@ -97,9 +107,9 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  enemy.update();
+  // enemy.update();
 
-  // Player
+  // Player movement
   player.velocity.x = 0;
 
   if (keys.a.pressed && player.lastKey === "a") {
@@ -108,7 +118,7 @@ function animate() {
     player.velocity.x = 3;
   }
 
-  // Enemy
+  // Enemy movement
   enemy.velocity.x = 0;
 
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
