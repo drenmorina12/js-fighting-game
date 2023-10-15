@@ -43,7 +43,7 @@ const player = new Fighter({
     x: 0,
     y: 0,
   },
-  imageSrc: "./images/samuraiMack/idle.png",
+  imageSrc: "./images/samuraiMack/Idle.png",
   framesMax: 8,
   scale: 2.5,
   offset: {
@@ -52,11 +52,11 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: "./images/samuraiMack/idle.png",
+      imageSrc: "./images/samuraiMack/Idle.png",
       framesMax: 8,
     },
     run: {
-      imageSrc: "./images/samuraiMack/run.png",
+      imageSrc: "./images/samuraiMack/Run.png",
       framesMax: 8,
     },
   },
@@ -112,10 +112,15 @@ function animate() {
   // Player movement
   player.velocity.x = 0;
 
+  // Change to idle animation when no key pressed
+  player.image = player.sprites.idle.image;
+
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -3;
+    player.image = player.sprites.run.image;
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 3;
+    player.image = player.sprites.run.image;
   }
 
   // Enemy movement
