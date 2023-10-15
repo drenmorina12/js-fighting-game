@@ -128,15 +128,19 @@ class Fighter extends Sprite {
     switch (sprite) {
       case "idle":
         player.image = player.sprites.idle.image;
-        player.framesMax = player.sprites.idle.framesMax
+        player.framesMax = player.sprites.idle.framesMax;
         break;
       case "run":
         player.image = player.sprites.run.image;
-        player.framesMax = player.sprites.run.framesMax
+        player.framesMax = player.sprites.run.framesMax;
         break;
       case "jump":
         player.image = player.sprites.jump.image;
-        player.framesMax = player.sprites.jump.framesMax
+        player.framesMax = player.sprites.jump.framesMax;
+        break;
+      case "fall":
+        player.image = player.sprites.fall.image;
+        player.framesMax = player.sprites.fall.framesMax;
         break;
     }
   }
