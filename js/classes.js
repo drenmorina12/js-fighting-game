@@ -135,37 +135,37 @@ class Fighter extends Sprite {
 
     switch (sprite) {
       case "idle":
-        if (player.image !== player.sprites.idle.image) {
-          player.image = player.sprites.idle.image;
-          player.framesMax = player.sprites.idle.framesMax;
+        if (this.image !== this.sprites.idle.image) {
+          this.image = this.sprites.idle.image;
+          this.framesMax = this.sprites.idle.framesMax;
           this.framesCurrent = 0;
         }
         break;
       case "run":
-        if (player.image !== player.sprites.run.image) {
-          player.image = player.sprites.run.image;
-          player.framesMax = player.sprites.run.framesMax;
+        if (this.image !== this.sprites.run.image) {
+          this.image = this.sprites.run.image;
+          this.framesMax = this.sprites.run.framesMax;
           this.framesCurrent = 0;
         }
         break;
       case "jump":
-        if (player.image !== player.sprites.jump.image) {
-          player.image = player.sprites.jump.image;
-          player.framesMax = player.sprites.jump.framesMax;
+        if (this.image !== this.sprites.jump.image) {
+          this.image = this.sprites.jump.image;
+          this.framesMax = this.sprites.jump.framesMax;
           this.framesCurrent = 0;
         }
         break;
       case "fall":
-        if (player.image !== player.sprites.fall.image) {
-          player.image = player.sprites.fall.image;
-          player.framesMax = player.sprites.fall.framesMax;
+        if (this.image !== this.sprites.fall.image) {
+          this.image = this.sprites.fall.image;
+          this.framesMax = this.sprites.fall.framesMax;
           this.framesCurrent = 0;
         }
         break;
       case "attack1":
-        if (player.image !== player.sprites.attack1.image) {
-          player.image = player.sprites.attack1.image;
-          player.framesMax = player.sprites.attack1.framesMax;
+        if (this.image !== this.sprites.attack1.image) {
+          this.image = this.sprites.attack1.image;
+          this.framesMax = this.sprites.attack1.framesMax;
           this.framesCurrent = 0;
         }
         break;
