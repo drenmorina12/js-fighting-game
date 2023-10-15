@@ -120,14 +120,14 @@ function animate() {
   // Player movement
   player.velocity.x = 0;
 
-  player.switchSprite("idle"); // Change to idle animation when no key pressed
-
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -3;
     player.switchSprite("run");
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 3;
     player.switchSprite("run");
+  } else {
+    player.switchSprite("idle");
   }
 
   if (player.velocity.y < 0) {
