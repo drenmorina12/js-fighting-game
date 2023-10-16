@@ -233,7 +233,10 @@ function animate() {
     enemy.takeHit();
     player.isAttacking = false;
 
-    document.querySelector("#enemy-bar").style.width = enemy.health + "%";
+    // document.querySelector("#enemy-bar").style.width = enemy.health + "%";
+    gsap.to("#enemy-bar", {
+      width: enemy.health + "%",
+    });
   }
 
   // If player misses
@@ -253,7 +256,10 @@ function animate() {
     player.takeHit();
     enemy.isAttacking = false;
 
-    document.querySelector("#player-bar").style.width = player.health + "%";
+    // document.querySelector("#player-bar").style.width = player.health + "%";
+    gsap.to("#player-bar", {
+      width: player.health + "%",
+    });
   }
 
   // If enemy misses
