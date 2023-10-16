@@ -75,6 +75,10 @@ const player = new Fighter({
       imageSrc: "./images/samuraiMack/Take Hit - white silhouette.png",
       framesMax: 4,
     },
+    death: {
+      imageSrc: "./images/samuraiMack/Death.png",
+      framesMax: 6,
+    },
   },
   attackBox: {
     offset: {
@@ -130,6 +134,10 @@ const enemy = new Fighter({
     takeHit: {
       imageSrc: "./images/kenji/TakeHit.png",
       framesMax: 3,
+    },
+    death: {
+      imageSrc: "./images/kenji/Death.png",
+      framesMax: 7,
     },
   },
   attackBox: {
@@ -260,38 +268,43 @@ function animate() {
 animate();
 
 window.addEventListener("keydown", (event) => {
-  switch (event.key) {
-    // Player
-    case "d":
-      keys.d.pressed = true;
-      player.lastKey = event.key;
-      break;
-    case "a":
-      keys.a.pressed = true;
-      player.lastKey = event.key;
-      break;
-    case "w":
-      player.velocity.y = -10;
-      break;
-    case " ":
-      player.attack();
-      break;
-
-    // Enemy
-    case "ArrowRight":
-      keys.ArrowRight.pressed = true;
-      enemy.lastKey = event.key;
-      break;
-    case "ArrowLeft":
-      keys.ArrowLeft.pressed = true;
-      enemy.lastKey = event.key;
-      break;
-    case "ArrowUp":
-      enemy.velocity.y = -10;
-      break;
-    case "ArrowDown":
-      enemy.attack();
-      break;
+  if (!player.dead) {
+    switch (event.key) {
+      // Player
+      case "d":
+        keys.d.pressed = true;
+        player.lastKey = event.key;
+        break;
+      case "a":
+        keys.a.pressed = true;
+        player.lastKey = event.key;
+        break;
+      case "w":
+        player.velocity.y = -10;
+        break;
+      case " ":
+        player.attack();
+        break;
+    }
+  }
+  if (!enemy.dead) {
+    switch (event.key) {
+      // Enemy
+      case "ArrowRight":
+        keys.ArrowRight.pressed = true;
+        enemy.lastKey = event.key;
+        break;
+      case "ArrowLeft":
+        keys.ArrowLeft.pressed = true;
+        enemy.lastKey = event.key;
+        break;
+      case "ArrowUp":
+        enemy.velocity.y = -10;
+        break;
+      case "ArrowDown":
+        enemy.attack();
+        break;
+    }
   }
 });
 
