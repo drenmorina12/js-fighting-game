@@ -126,10 +126,10 @@ const enemy = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 0,
-      y: 0,
+      x: -165,
+      y: 50,
     },
-    width: 100,
+    width: 165,
     height: 50,
   },
 });
@@ -213,7 +213,7 @@ function animate() {
     player.framesCurrent === 4
   ) {
     player.isAttacking = false;
-    enemy.health -= 20;
+    enemy.health -= 10;
     document.querySelector("#enemy-bar").style.width = enemy.health + "%";
   }
 
@@ -228,11 +228,17 @@ function animate() {
       rectangle1: enemy,
       rectangle2: player,
     }) &&
-    enemy.isAttacking
+    enemy.isAttacking &&
+    enemy.framesCurrent === 1
   ) {
     enemy.isAttacking = false;
-    player.health -= 20;
+    player.health -= 10;
     document.querySelector("#player-bar").style.width = player.health + "%";
+  }
+
+  // If enemy misses
+  if (enemy.isAttacking && enemy.framesCurrent === 1) {
+    enemy.isAttacking = false;
   }
 
   // Game over
