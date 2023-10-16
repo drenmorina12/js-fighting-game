@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
 }
 
 .container {
@@ -19,18 +20,24 @@
 .player,
 .enemy {
   position: relative;
-  height: 30px;
+  /* height: 30px; */
   width: 100%;
+  border: 4px solid white;
 }
 
 .player {
   display: flex;
   justify-content: flex-end;
+  border-right: 0px;
+}
+
+.enemy {
+  border-left: 0px;
 }
 
 .player-hp,
 .enemy-hp {
-  background-color: yellow;
+  background-color: red;
   height: 30px;
   width: 100%;
 }
@@ -38,7 +45,7 @@
 #player-bar,
 #enemy-bar {
   position: absolute;
-  background-color: blue;
+  background-color: #818cf8;
   top: 0;
   right: 0;
   bottom: 0;
@@ -53,13 +60,15 @@
 }
 
 .timer {
-  background-color: red;
+  background-color: black;
+  color: white;
   width: 100px;
-  height: 100px;
+  height: 50px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 4px solid white;
 }
 
 #display-text {
