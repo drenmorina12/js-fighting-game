@@ -22,10 +22,10 @@ class Sprite {
     c.drawImage(
       this.image,
       // Position to crop frames
-      this.framesCurrent * (this.image.width / this.framesMax),
-      0,
-      this.image.width / this.framesMax,
-      this.image.height,
+      this.framesCurrent * (this.image.width / this.framesMax), // x coordinate
+      0, // y coordinate
+      this.image.width / this.framesMax, // crop width
+      this.image.height, // crop height
       // Position to draw frame
       this.position.x - this.offset.x,
       this.position.y - this.offset.y,
