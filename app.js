@@ -288,7 +288,7 @@ window.addEventListener("keydown", (event) => {
         player.lastKey = event.key;
         break;
       case "w":
-        player.velocity.y = -10;
+        player.jump();
         break;
       case " ":
         player.attack();
@@ -307,7 +307,7 @@ window.addEventListener("keydown", (event) => {
         enemy.lastKey = event.key;
         break;
       case "ArrowUp":
-        enemy.velocity.y = -10;
+        enemy.jump();
         break;
       case "ArrowDown":
         enemy.attack();

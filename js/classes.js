@@ -98,6 +98,7 @@ class Fighter extends Sprite {
     this.framesHold = 10;
     this.sprites = sprites;
     this.dead = false;
+    this.jumpHeight = -10;
 
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image();
@@ -154,6 +155,12 @@ class Fighter extends Sprite {
       this.switchSprite("death");
     } else {
       this.switchSprite("takeHit");
+    }
+  }
+
+  jump() {
+    if (this.velocity.y === 0) {
+      this.velocity.y = this.jumpHeight;
     }
   }
 
