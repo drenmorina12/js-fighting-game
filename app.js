@@ -186,10 +186,14 @@ function animate() {
   // Player movement
   player.velocity.x = 0;
 
-  if (keys.a.pressed && player.lastKey === "a") {
+  if (keys.a.pressed && player.lastKey === "a" && player.position.x > 0) {
     player.velocity.x = -3;
     player.switchSprite("run");
-  } else if (keys.d.pressed && player.lastKey === "d") {
+  } else if (
+    keys.d.pressed &&
+    player.lastKey === "d" &&
+    player.position.x < WIDTH - player.width
+  ) {
     player.velocity.x = 3;
     player.switchSprite("run");
   } else {
@@ -205,10 +209,18 @@ function animate() {
   // Enemy movement
   enemy.velocity.x = 0;
 
-  if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
+  if (
+    keys.ArrowLeft.pressed &&
+    enemy.lastKey === "arrowleft" &&
+    enemy.position.x > 0
+  ) {
     enemy.velocity.x = -3;
     enemy.switchSprite("run");
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
+  } else if (
+    keys.ArrowRight.pressed &&
+    enemy.lastKey === "arrowright" &&
+    enemy.position.x < WIDTH - enemy.width
+  ) {
     enemy.velocity.x = 3;
     enemy.switchSprite("run");
   } else {
@@ -276,16 +288,17 @@ function animate() {
 animate();
 
 window.addEventListener("keydown", (event) => {
+  console.log(event.key.toLocaleLowerCase());
   if (!player.dead) {
-    switch (event.key) {
+    switch (event.key.toLocaleLowerCase()) {
       // Player
       case "d":
         keys.d.pressed = true;
-        player.lastKey = event.key;
+        player.lastKey = event.key.toLocaleLowerCase();
         break;
       case "a":
         keys.a.pressed = true;
-        player.lastKey = event.key;
+        player.lastKey = event.key.toLocaleLowerCase();
         break;
       case "w":
         player.jump();
@@ -296,20 +309,20 @@ window.addEventListener("keydown", (event) => {
     }
   }
   if (!enemy.dead) {
-    switch (event.key) {
+    switch (event.key.toLowerCase()) {
       // Enemy
-      case "ArrowRight":
+      case "arrowright":
         keys.ArrowRight.pressed = true;
-        enemy.lastKey = event.key;
+        enemy.lastKey = event.key.toLocaleLowerCase();
         break;
-      case "ArrowLeft":
+      case "arrowleft":
         keys.ArrowLeft.pressed = true;
-        enemy.lastKey = event.key;
+        enemy.lastKey = event.key.toLocaleLowerCase();
         break;
-      case "ArrowUp":
+      case "arrowup":
         enemy.jump();
         break;
-      case "ArrowDown":
+      case "arrowdown":
         enemy.attack();
         break;
     }
@@ -317,7 +330,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("keyup", (event) => {
-  switch (event.key) {
+  switch (event.key.toLocaleLowerCase()) {
     // Player
     case "d":
       keys.d.pressed = false;
@@ -327,10 +340,10 @@ window.addEventListener("keyup", (event) => {
       break;
 
     // Enemy
-    case "ArrowRight":
+    case "arrowright":
       keys.ArrowRight.pressed = false;
       break;
-    case "ArrowLeft":
+    case "arrowleft":
       keys.ArrowLeft.pressed = false;
       break;
   }
